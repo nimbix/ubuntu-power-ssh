@@ -10,7 +10,7 @@
     "machines": [
         "np8*"
     ],
-    "scale-max": 1,
+    "scale_max": 1,
     "vault-types": [
         "FILE", 
         "BLOCK", 
