@@ -1,6 +1,6 @@
 {
-    "name": "Ubuntu Linux for POWER8", 
-    "description": "Ubuntu Linux ephemeral environment on POWER8 system with NVIDIA CUDA toolkit.", 
+    "name": "Ubuntu Linux for POWER", 
+    "description": "Ubuntu Linux ephemeral environment on POWER system with NVIDIA CUDA toolkit.", 
     "author": "Nimbix, Inc.", 
     "licensed": true, 
     "classifications": [
@@ -8,7 +8,7 @@
         "Software Testing"
     ], 
     "machines": [
-        "np8*"
+        "*"
     ],
     "scale_max": 1,
     "vault-types": [
@@ -19,16 +19,32 @@
     ], 
     "commands": {
         "run": {
-            "path": "/usr/bin/env", 
+            "path": "/bin/bash", 
             "interactive": false, 
-            "name": "Run", 
-            "description": "Run a command in the environment and exit.", 
+            "name": "Run",
+            "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
             "parameters": {
+                "-l": {
+                    "name": "-l",
+                    "description": "-l",
+                    "type": "CONST",
+                    "value": "-l",
+                    "positional": true,
+                    "required": true
+                },
+                "-c": {
+                    "name": "-c",
+                    "description": "-c",
+                    "type": "CONST",
+                    "value": "-c",
+                    "positional": true,
+                    "required": true
+                },
                 "command": {
-                    "name": "Command", 
-                    "description": "Command to run", 
-                    "type": "STR", 
-                    "positional": true, 
+                    "name": "Command",
+                    "description": "Command to run",
+                    "type": "STR",
+                    "positional": true,
                     "required": true
                 }
             }
@@ -37,7 +53,7 @@
             "path": "/sbin/init", 
             "interactive": true, 
             "name": "Launch", 
-            "description": "Launch and ephemeral environment and connect via SSH.", 
+            "description": "Launch an ephemeral environment and connect directly in your web browser or via SSH.", 
             "parameters": {}
         }
     }, 
